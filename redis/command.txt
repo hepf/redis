@@ -1,0 +1,4 @@
+启动哨兵
+两种方式
+redis-sentinel /path/to/sentinel.conf
+redis-server /path/to/sentinel.conf --sentinel
