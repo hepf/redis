@@ -1,0 +1,14 @@
+创建集群（最后的1表示每个节点有1个副本）
+redis-cli --cluster create 172.16.13.76:6401 172.16.13.76:6402 172.16.13.76:6403 172.16.13.76:6404 172.16.13.76:6405 172.16.13.76:6406 --cluster-replicas 1
+
+查看集群
+redis-cli -h 172.16.13.76 -p 6401 cluster nodes
+
+让某个节点失效
+redis-cli -h 172.16.13.76 -p 6401 debug segfault
+
+添加节点
+redis-cli --cluster add-node 172.16.13.76:6407 172.16.13.76:6408
+
+重新分配哈希槽
+redis-cli --cluster reshard  ip:port
